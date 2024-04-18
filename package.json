@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "tsc": "^2.0.4"
   }
 }
