@@ -31,36 +31,45 @@
 // add3(myF);
 
 
-interface User {
-    firstName : string,
-    lastName : string,
-    age : number
-    email?:string       //email may or may be passed
-}
+// interface User {
+//     firstName : string,
+//     lastName : string,
+//     age : number
+//     email?:string       //email may or may be passed
+// }
 
 
-function isLegal (user:User){
-    if(user.age>18){
-        console.log("18+")
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-function Greet (user:User){
-    console.log("Welcome "+user.firstName)
-}
+// function isLegal (user:User){
+//     if(user.age>18){
+//         console.log("18+")
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }
+// function Greet (user:User){
+//     console.log("Welcome "+user.firstName)
+// }
 
 
-isLegal({
-    firstName:"Amit",
-    lastName:"Kumar",
-    age:22,
+// isLegal({
+//     firstName:"Amit",
+//     lastName:"Kumar",
+//     age:22,
     
-})
-Greet({
-    firstName:"Amit",
-    lastName:"Kumar",
-    age:19
-})
+// })
+// Greet({
+//     firstName:"Amit",
+//     lastName:"Kumar",
+//     age:19
+// })
+
+// const product = (a:number,b:number):Number =>{
+//     return a*b;
+// }
+
+
+// const product = (fn:(a:number,b:number)=>number):number =>{
+//     return 25
+// }
