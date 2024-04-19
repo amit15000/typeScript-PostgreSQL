@@ -5,12 +5,9 @@
 // function add ( a:number, b:number){
 //     return "Amit";
 // }
-function add2 ( a:number, b:number):number{
-    return a+b;
-}
-
-
-
+// function add2 ( a:number, b:number):number{
+//     return a+b;
+// }
 // function runScript(fn:()=>void ){
 //     setTimeout(fn, 2000);
 // }
@@ -19,15 +16,51 @@ function add2 ( a:number, b:number):number{
 //     console.log("Amit")
 // })
 
-function myF (a:int , b:string){
-    return a;
 
+// // "noImplicitAny": false,      
+// function myF (a,b){
+//     return a;
+
+// }
+
+// function add3 ( fn:(a:number,b:string)=>number):number{
+//     setTimeout(fn,1000)
+//     return 3;
+// }
+
+// add3(myF);
+
+
+interface User {
+    firstName : string,
+    lastName : string,
+    age : number
+    email?:string       //email may or may be passed
 }
 
-function add3 ( fn:(a:int,b:string)=>int):number{
-    setTimeout(fn,1000)
-    return 3;
+
+function isLegal (user:User){
+    if(user.age>18){
+        console.log("18+")
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function Greet (user:User){
+    console.log("Welcome "+user.firstName)
 }
 
-add3(myF);
 
+isLegal({
+    firstName:"Amit",
+    lastName:"Kumar",
+    age:22,
+    
+})
+Greet({
+    firstName:"Amit",
+    lastName:"Kumar",
+    age:19
+})
