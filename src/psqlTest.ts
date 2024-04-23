@@ -72,4 +72,28 @@ const getUser = async (email: String) => {
   }
 };
 
-getUser("amitmaurya15000@gmail.com");
+async function createAddressTable() {
+  try {
+    await client.connect();
+    const createQuery = `CREATE TABLE IF NOT EXISTS addresses(
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER NOT NULL,
+      city VARCHAR(100) NOT NULL,
+      country VARCHAR(50) NOT NULL,
+      street VARCHAR(200) NOT NULL,
+      pincode VARCHAR(6),
+      created_at  TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    ) `;
+    await client.query(createQuery);
+    console.log("Table created successfully");
+  } catch (error) {
+    console.log("Error while creating table", error);
+    throw error;
+  } finally {
+    await client.end();
+  }
+}
+
+// getUser("amitmaurya15000@gmail.com");
+// createAddressTable();
