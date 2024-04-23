@@ -8,8 +8,9 @@ To download and run the PostgreSQL image for the first time, use:
 
 If the image is already downloaded, you can start the container with:
 docker start my-postgres1
-To connect to the PostgreSQL instance, use:
 
+
+To connect to the PostgreSQL instance, use:
 #docker exec -it my-postgres1 psql -U postgres -d postgres
 
 

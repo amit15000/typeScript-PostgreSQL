@@ -1,15 +1,13 @@
-import { Client } from 'pg';
-
+import { Client } from "pg";
+const client = new Client({
+  host: "localhost",
+  port: 5432,
+  database: "postgres",
+  user: "postgres",
+  password: "mysecretpassword",
+});
 // Async function to insert data into a table
 async function insertData(username, email, password) {
-  const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    database: 'postgres',
-    user: 'postgres',
-    password: 'mysecretpassword',
-  });
-
   try {
     // Connect to the PostgreSQL client
     await client.connect();
@@ -20,7 +18,7 @@ async function insertData(username, email, password) {
     // Insert data into the users table
     await insertIntoUsersTable(username, email, password);
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   } finally {
     // Close the connection
     await client.end();
@@ -37,16 +35,41 @@ async function insertData(username, email, password) {
       )
     `;
     await client.query(createQuery);
-    console.log('Table created successfully');
+    console.log("Table created successfully");
   }
 
   async function insertIntoUsersTable(username, email, password) {
-    const insertQuery = "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)";
+    const insertQuery =
+      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)";
     const values = [username, email, password];
     const res = await client.query(insertQuery, values);
-    console.log('Insertion success:', res);
+    console.log("Insertion success:", res);
   }
 }
 
 // Call the function with sample data
-insertData('username5', 'user5@example.com', 'user_password');
+// insertData('username2', 'amitmaurya15000@gmail.com', '123123123');
+
+const getUser = async (email: String) => {
+  try {
+    await client.connect();
+    const inserQuery = "SELECT * FROM users WHERE email = $1";
+    const values = [email];
+    const res = await client.query(inserQuery, values);
+
+    if (res.rows.length > 0) {
+      console.log("User found", res.rows[0]);
+      return res.rows[0];
+    } else {
+      console.log("No user found with Email Id : ", email);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error during fetching user:", error);
+    throw error;
+  } finally {
+    await client.end();
+  }
+};
+
+getUser("amitmaurya15000@gmail.com");
