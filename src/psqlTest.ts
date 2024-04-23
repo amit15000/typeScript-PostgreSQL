@@ -1,55 +1,52 @@
 import { Client } from 'pg';
 
-
-const client = new Client({
-    //hell not working
+// Async function to insert data into a table
+async function insertData(username, email, password) {
+  const client = new Client({
     host: 'localhost',
     port: 5432,
-    database: 'mytestdb',
+    database: 'postgres',
     user: 'postgres',
     password: 'mysecretpassword',
-});
+  });
 
-async function createTable() {
-    try {
-        await client.connect();
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS users (
-                id SERIAL PRIMARY KEY,
-                username VARCHAR(50) UNIQUE NOT NULL,
-                email VARCHAR(255) UNIQUE NOT NULL,
-                password VARCHAR(255) NOT NULL,
-                created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-            )
-        `);
-        console.log("Table 'users' created successfully.");
-    } catch (err) {
-        console.error('Error during table creation:', err);
-    } finally {
-        await client.end();
-    }
+  try {
+    // Connect to the PostgreSQL client
+    await client.connect();
+
+    // Create the users table if it doesn't exist
+    await createUsersTable();
+
+    // Insert data into the users table
+    await insertIntoUsersTable(username, email, password);
+  } catch (error) {
+    console.error('Error:', error);
+  } finally {
+    // Close the connection
+    await client.end();
+  }
+
+  async function createUsersTable() {
+    const createQuery = `
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+    await client.query(createQuery);
+    console.log('Table created successfully');
+  }
+
+  async function insertIntoUsersTable(username, email, password) {
+    const insertQuery = "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)";
+    const values = [username, email, password];
+    const res = await client.query(insertQuery, values);
+    console.log('Insertion success:', res);
+  }
 }
 
-async function insertData(username, email, password) {
-    try {
-        await client.connect();
-        const queryText = `
-            INSERT INTO users (username, email, password)
-            VALUES ($1, $2, $3)
-            RETURNING *
-        `;
-        const res = await client.query(queryText, [username, email, password]);
-        console.log("Data inserted successfully:", res.rows[0]);
-    } catch (err) {
-        console.error('Error during data insertion:', err);
-    } finally {
-        await client.end();
-    }
-}
-
-async function main() {
-    await createTable();
-    await insertData("Amit", "15000amitkumar@gmail.com", "xyz");
-}
-
-main().catch(console.error);
+// Call the function with sample data
+insertData('username5', 'user5@example.com', 'user_password');
