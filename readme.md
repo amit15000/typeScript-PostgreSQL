@@ -63,7 +63,8 @@
 Feel free to explore more PostgreSQL commands and functionalities as needed.
 
 - Important
-### "User" is a reserved keyword in PostgreSQL. To reference a table with a reserved keyword name, you need to use double quotes around the table name. Let's try the command again:
+### "User" is a reserved keyword in PostgreSQL.
+To reference a table with a reserved keyword name, you need to use double quotes around the table name. Let's try the command again:
 
 ```bash
 INSERT INTO "User" (email, "firstName", "lastName", password, phone) 
