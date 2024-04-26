@@ -76,13 +76,32 @@
 //   email: "Amit",
 // });
 
+// interface Config {
+//   endpoint: string;
+//   apiKey: string;
+// }
+// const confgData: Readonly<Config> = {
+//   endpoint: "https://api.example.com",
+//   apiKey: "abcdef123456",
+// };
+// Reaconly makes all properties constant
+// confgData.endpoint = "asdasd";
+// confgData.apiKey = "asdasd";
+
 interface Config {
   endpoint: string;
-  apiKey: string;
+  readonly apiKey: string;
 }
-const confgData: Readonly<Config> = {
+
+const confgData: Config = {
   endpoint: "https://api.example.com",
   apiKey: "abcdef123456",
 };
 
-// confgData.endpoint = "asdasd";
+const ROnlyconfgData: Readonly<Config> = {
+  endpoint: "https://api.example.com",
+  apiKey: "abcdef123456",
+};
+
+confgData.endpoint = "asdasd";
+confgData.apiKey = "asdasd";
