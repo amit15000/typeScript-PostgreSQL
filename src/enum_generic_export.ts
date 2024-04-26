@@ -16,18 +16,29 @@
 //     right,
 // }
 
-enum Direction {
-  up = "UP",
-  down = "Down",
-  left = 7,
-  right,
-}
-async function keyStroke(key: Direction) {
-  console.log(key);
+// enum Direction {
+//   up = "UP",
+//   down = "Down",
+//   left = 7,
+//   right,
+// }
+// async function keyStroke(key: Direction) {
+//   console.log(key);
 
-  if ((key = Direction.up)) {
-    console.log("Up key");
-  }
+//   if ((key = Direction.up)) {
+//     console.log("Up key");
+//   }
+// }
+
+// keyStroke(Direction.right);
+
+enum ResponseStatus {
+  success = 200,
+  error = 404,
+  notFound = 500,
 }
 
-keyStroke(Direction.right);
+return Response.status(ResponseStatus.success).json({
+  suceess: true,
+  message: "Mission Passed",
+});
