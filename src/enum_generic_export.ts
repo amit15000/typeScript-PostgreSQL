@@ -24,6 +24,10 @@ enum Direction {
 }
 async function keyStroke(key: Direction) {
   console.log(key);
+
+  if ((key = Direction.up)) {
+    console.log("Up key");
+  }
 }
 
 keyStroke(Direction.right);
