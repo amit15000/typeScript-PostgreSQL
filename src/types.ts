@@ -88,20 +88,20 @@
 // confgData.endpoint = "asdasd";
 // confgData.apiKey = "asdasd";
 
-interface Config {
-  endpoint: string;
-  readonly apiKey: string;
-}
+// interface Config {
+//   endpoint: string;
+//   readonly apiKey: string;
+// }
 
-const confgData: Config = {
-  endpoint: "https://api.example.com",
-  apiKey: "abcdef123456",
-};
+// const confgData: Config = {
+//   endpoint: "https://api.example.com",
+//   apiKey: "abcdef123456",
+// };
 
-const ROnlyconfgData: Readonly<Config> = {
-  endpoint: "https://api.example.com",
-  apiKey: "abcdef123456",
-};
+// const ROnlyconfgData: Readonly<Config> = {
+//   endpoint: "https://api.example.com",
+//   apiKey: "abcdef123456",
+// };
 
-confgData.endpoint = "asdasd";
-confgData.apiKey = "asdasd";
+// confgData.endpoint = "asdasd";
+// confgData.apiKey = "asdasd";
