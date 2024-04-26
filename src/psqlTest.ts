@@ -95,5 +95,23 @@ async function createAddressTable() {
   }
 }
 
+async function insertAddress(user_id, city, country, street, pincode) {
+  try {
+    await client.connect();
+
+    const inserQuery = `INSERT INTO addresses(user_id,city,country,street,pincode) VALUES ($1,$2,$3,$4,$5)`;
+    const values = [user_id, city, country, street, pincode];
+    const res = await client.query(inserQuery, values);
+    console.log("Insertion success:", res);
+  } catch (error) {
+    console.log("Error in inserting data", error);
+    throw error;
+  } finally {
+    await client.end();
+  }
+}
+
 // getUser("amitmaurya15000@gmail.com");
 // createAddressTable();
+
+insertAddress(3, "Ghaziabad", "India", "Sanchi Street", 201009);

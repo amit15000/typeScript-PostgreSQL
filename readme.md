@@ -1,3 +1,18 @@
+## Step 1 - Install TypeScript Globally:
+```bash
+npm install -g typescript
+```
+This command installs TypeScript globally on your machine, allowing you to use the tsc command anywhere.
+ 
+## Step 2 - Initialize a Node.js Project with TypeScript:
+```bash
+mkdir node-app
+cd node-app
+npm init -y
+npx tsc --init
+```
+
+
 Ensure Docker Desktop for Windows is installed and running.
 Open Windows Terminal or any command-line interface.
 To download and run the PostgreSQL image for the first time, use:

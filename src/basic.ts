@@ -16,8 +16,7 @@
 //     console.log("Amit")
 // })
 
-
-// // "noImplicitAny": false,      
+// // "noImplicitAny": false,
 // function myF (a,b){
 //     return a;
 
@@ -30,14 +29,12 @@
 
 // add3(myF);
 
-
 // interface User {
 //     firstName : string,
 //     lastName : string,
 //     age : number
 //     email?:string       //email may or may be passed
 // }
-
 
 // function isLegal (user:User){
 //     if(user.age>18){
@@ -52,7 +49,6 @@
 //     console.log("Welcome "+user.firstName)
 // }
 
-
 // isLegal({
 //     firstName:"Amit",
 //     lastName:"Kumar",
@@ -60,7 +56,7 @@
 
 // })
 // Greet({
-    //     firstName:"Amit",
+//     firstName:"Amit",
 //     lastName:"Kumar",
 //     age:19
 // })
@@ -69,9 +65,6 @@
 //     return a*b;
 // }
 
-
-const product = (fn:(a:number,b:number)=>number):number =>{
-    return 25
-}
-
-//using lazygit
+const product = (fn: (a: number, b: number) => number): number => {
+  return 25;
+};
