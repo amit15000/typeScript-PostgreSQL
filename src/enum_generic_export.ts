@@ -44,3 +44,25 @@
 //     message: "Error",
 //   });
 // });
+
+// Generics
+
+type arrStrNum = string | number;
+
+// function firstElm(arr: string[] | number[]) {
+//   return arr[0];
+// }
+
+// const r = firstElm(["Amit", "Sumit"]);
+// r.toUpperCase();
+
+//  Generic Type
+function identify<T>(arr: T[]) {
+  return arr[0];
+}
+
+const r1 = identify<string>(["Amit", "Sumit"]);
+const r2 = identify([1, 2, 3, 4, "A", "Asdsad"]);
+const r3 = identify([1, 2, 3, 4]);
+
+console.log(r1.toUpperCase());
