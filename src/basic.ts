@@ -8,13 +8,13 @@
 // function add2 ( a:number, b:number):number{
 //     return a+b;
 // }
-// function runScript(fn:()=>void ){
-//     setTimeout(fn, 2000);
-// }
+function runScript(fn: () => void) {
+  setTimeout(fn, 2000);
+}
 
-// runScript(function (){
-//     console.log("Amit")
-// })
+runScript(function () {
+  console.log("Amit");
+});
 
 // // "noImplicitAny": false,
 // function myF (a,b){
@@ -65,6 +65,6 @@
 //     return a*b;
 // }
 
-const product = (fn: (a: number, b: number) => number): number => {
-  return 25;
-};
+// const product = (fn: (a: number, b: number) => number): number => {
+//   return 25;
+// };

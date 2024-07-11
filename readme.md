@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Step 1 - Install TypeScript Globally:
 ```bash
 npm install -g typescript
@@ -14,12 +13,13 @@ npx tsc --init
 ```
 
 
+```bash
+tsc -b
+```
+
 Ensure Docker Desktop for Windows is installed and running.
 Open Windows Terminal or any command-line interface.
 To download and run the PostgreSQL image for the first time, use:
-=======
-## Setting up PostgreSQL with Docker on Windows
->>>>>>> d0d6904d10c4e5cc42f5c8edebd020d68bcc9592
 
 ### Prerequisites
 1. Ensure Docker Desktop for Windows is installed and running.

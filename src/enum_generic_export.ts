@@ -38,7 +38,7 @@ enum ResponseStatus {
   notFound = 500,
 }
 
-return Response.status(ResponseStatus.success).json({
-  suceess: true,
-  message: "Mission Passed",
-});
+// return Response.status(ResponseStatus.success).json({
+//   suceess: true,
+//   message: "Mission Passed",
+// });
