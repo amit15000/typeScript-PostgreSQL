@@ -66,11 +66,22 @@ type User = {
   age: number;
   email: string;
 };
-const users = new Map<string, User>();
+// const users = new Map<string, User>();
 
-users.set("user1", { name: "Amit", age: 12, email: "amit@sumit.com" });
-users.set("user2", { name: "Amit", age: 12, email: "amit@sumit.com" });
-// users.set("user3", { name: "Amit", age: 12 });     // Error bcz email is not partial
-console.log(users.get("user1"));
-users.delete("user1");
-console.log(users.get("user1"));
+// users.set("user1", { name: "Amit", age: 12, email: "amit@sumit.com" });
+// users.set("user2", { name: "Amit", age: 12, email: "amit@sumit.com" });
+// // users.set("user3", { name: "Amit", age: 12 });     // Error bcz email is not partial
+// console.log(users.get("user1"));
+// users.delete("user1");
+// console.log(users.get("user1"));
+
+//                                                      Exclude
+
+type EventType = "click" | "scroll" | "mousemove";
+type ExcludeEvent = Exclude<EventType, "scroll">;
+
+const handleMouse = (event: ExcludeEvent) => {
+  console.log(event);
+};
+handleMouse("click");
+// handleMouse("scroll");
